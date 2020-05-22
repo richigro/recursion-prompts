@@ -19,28 +19,58 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+    //base case
     if(array.length === 0){
         return 0;
     }
+    // base case
     if(array.length === 1){
         return array[0];
     } 
     let acc = 0;
     acc = array[0] + acc;
     array = array.slice(1);
+    // recursion
     return acc + sum(array);
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+    let newArr = array.slice();
+    let total = 0;
+    // total+= array[0];
+    //if array length is 0 jsut return
+    // base case
+    if(newArr.length === 0){
+      return 0;
+    }
+    // if first element is an array do a recursive call of that element
+    if(Array.isArray(newArr[0])){
+        //call the recursive function with said array
+        total += arraySum(newArr[0]);
+    }
+    if(typeof newArr[0] === 'number'){
+        total += newArr[0];
+    }
+    // remove first ele from array
+    newArr.shift();
+
+    return total + arraySum(newArr);
+    // if the element is a number add to total 
 
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-    if(n % 2 == 0){
+    // if n is 0 or less than zero retun false
+    if(Math.floor(n) === 0 ){
+        return false;
+    }
+    if( Number.isInteger(n / 2) ){
         return true;
+    } else{
+        isEven(n/2);
     }
 };
 
