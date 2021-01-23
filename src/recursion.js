@@ -63,15 +63,22 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-    // if n is 0 or less than zero retun false
-    if(Math.floor(n) === 0 ){
-        return false;
-    }
-    if( Number.isInteger(n / 2) ){
-        return true;
-    } else{
-        isEven(n/2);
-    }
+	//substarct 2 from n until it reaches zero for positive numbers
+	let newNum;
+	if(n > 0){
+   newNum = n - 2;
+	} else {
+		//add 2 until you get to 0 
+		newNum = n + 2;
+	}
+	//base case
+	if(n === 0){
+		return true;
+	}
+	if(n === 1){
+		return false;
+	}
+	return isEven(newNum);
 };
 
 // 5. Sum all integers below a given integer.
@@ -95,6 +102,7 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+	
 };
 
 // 7. Compute the exponent of a number.
