@@ -98,11 +98,11 @@ var sumBelow = function(n) {
 	// sum += n -1;
 	return newNum + sumBelow(newNum);
 };
-
+//test line
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-	
+
 };
 
 // 7. Compute the exponent of a number.
